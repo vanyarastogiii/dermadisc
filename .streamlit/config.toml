@@ -1,0 +1,12 @@
+[theme]
+base = "dark"
+primaryColor = "#2CC7B4"
+backgroundColor = "#0D1424"
+# Input boxes use this colour: a shade darker than the cards so they stand out
+secondaryBackgroundColor = "#0F1729"
+textColor = "#E9EEF7"
+borderColor = "#2D3A58"
+showWidgetBorder = true
+
+[client]
+toolbarMode = "minimal"
