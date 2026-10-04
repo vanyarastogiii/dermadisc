@@ -1,0 +1,301 @@
+{
+  "model_name": "DERMADISC-Net",
+  "architecture": "EfficientNet-B0 (ImageNet pretrained, fine-tuned)",
+  "framework": "PyTorch 2.11.0+cu130 -> ONNX",
+  "dataset": "HAM10000 (marmal88/skin_cancer on Hugging Face)",
+  "dry_run": false,
+  "trained_at": "2026-10-02 07:06",
+  "device": "cuda",
+  "epochs": 10,
+  "batch_size": 64,
+  "learning_rate": 0.0003,
+  "img_size": 224,
+  "mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "preprocess": "resize to 256x256 (bicubic) -> resize to 224x224 (bilinear) -> normalize",
+  "augmentation": "random resized crop, h/v flips, rotation 20deg, colour jitter",
+  "loss": "class-weighted cross-entropy + label smoothing 0.1",
+  "optimizer": "AdamW + OneCycle LR",
+  "split_sizes": {
+    "train": 9577,
+    "validation": 2492,
+    "test": 1285
+  },
+  "train_class_counts": {
+    "Actinic Keratosis": 315,
+    "Basal Cell Carcinoma": 487,
+    "Benign Keratosis": 1048,
+    "Dermatofibroma": 110,
+    "Melanocytic Nevus (Mole)": 6405,
+    "Melanoma": 1076,
+    "Vascular Lesion": 136
+  },
+  "raw_classes": [
+    "actinic_keratoses",
+    "basal_cell_carcinoma",
+    "benign_keratosis-like_lesions",
+    "dermatofibroma",
+    "melanocytic_Nevi",
+    "melanoma",
+    "vascular_lesions"
+  ],
+  "classes": [
+    "Actinic Keratosis",
+    "Basal Cell Carcinoma",
+    "Benign Keratosis",
+    "Dermatofibroma",
+    "Melanocytic Nevus (Mole)",
+    "Melanoma",
+    "Vascular Lesion"
+  ],
+  "class_info": [
+    {
+      "name": "Actinic Keratosis",
+      "short": "akiec",
+      "urgency": "medium",
+      "desc": "Rough, scaly sun-damage patch; a pre-cancerous lesion."
+    },
+    {
+      "name": "Basal Cell Carcinoma",
+      "short": "bcc",
+      "urgency": "high",
+      "desc": "Most common skin cancer; pearly bump or non-healing sore."
+    },
+    {
+      "name": "Benign Keratosis",
+      "short": "bkl",
+      "urgency": "low",
+      "desc": "Harmless growth such as seborrheic keratosis or solar lentigo."
+    },
+    {
+      "name": "Dermatofibroma",
+      "short": "df",
+      "urgency": "low",
+      "desc": "Small, firm, benign skin nodule."
+    },
+    {
+      "name": "Melanocytic Nevus (Mole)",
+      "short": "nv",
+      "urgency": "low",
+      "desc": "Common benign mole."
+    },
+    {
+      "name": "Melanoma",
+      "short": "mel",
+      "urgency": "high",
+      "desc": "Serious skin cancer - needs urgent dermatologist review."
+    },
+    {
+      "name": "Vascular Lesion",
+      "short": "vasc",
+      "urgency": "low",
+      "desc": "Blood-vessel lesion such as angioma or haemorrhage."
+    }
+  ],
+  "metrics": {
+    "test_accuracy": 0.9432,
+    "test_balanced_accuracy": 0.955,
+    "test_macro_f1": 0.9397,
+    "test_weighted_f1": 0.9445
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.0193,
+      "train_acc": 0.4638,
+      "val_loss": 1.7532,
+      "val_acc": 0.7147,
+      "val_balanced_acc": 0.5449
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.5201,
+      "train_acc": 0.7648,
+      "val_loss": 1.5401,
+      "val_acc": 0.8222,
+      "val_balanced_acc": 0.7829
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.3865,
+      "train_acc": 0.8022,
+      "val_loss": 1.4551,
+      "val_acc": 0.8664,
+      "val_balanced_acc": 0.8241
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.2967,
+      "train_acc": 0.8392,
+      "val_loss": 1.414,
+      "val_acc": 0.8868,
+      "val_balanced_acc": 0.8638
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.2329,
+      "train_acc": 0.8637,
+      "val_loss": 1.3594,
+      "val_acc": 0.9173,
+      "val_balanced_acc": 0.9161
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.171,
+      "train_acc": 0.8858,
+      "val_loss": 1.3754,
+      "val_acc": 0.9021,
+      "val_balanced_acc": 0.9408
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.1365,
+      "train_acc": 0.9008,
+      "val_loss": 1.3278,
+      "val_acc": 0.9322,
+      "val_balanced_acc": 0.9404
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.1054,
+      "train_acc": 0.9141,
+      "val_loss": 1.3035,
+      "val_acc": 0.9442,
+      "val_balanced_acc": 0.953
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.0839,
+      "train_acc": 0.9277,
+      "val_loss": 1.3058,
+      "val_acc": 0.941,
+      "val_balanced_acc": 0.9574
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.0729,
+      "train_acc": 0.9304,
+      "val_loss": 1.304,
+      "val_acc": 0.9414,
+      "val_balanced_acc": 0.9506
+    }
+  ],
+  "per_class": {
+    "Actinic Keratosis": {
+      "precision": 0.9111,
+      "recall": 0.9762,
+      "f1-score": 0.9425,
+      "support": 42
+    },
+    "Basal Cell Carcinoma": {
+      "precision": 0.9,
+      "recall": 0.9403,
+      "f1-score": 0.9197,
+      "support": 67
+    },
+    "Benign Keratosis": {
+      "precision": 0.9375,
+      "recall": 0.8451,
+      "f1-score": 0.8889,
+      "support": 142
+    },
+    "Dermatofibroma": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 14
+    },
+    "Melanocytic Nevus (Mole)": {
+      "precision": 0.9855,
+      "recall": 0.951,
+      "f1-score": 0.968,
+      "support": 858
+    },
+    "Melanoma": {
+      "precision": 0.7692,
+      "recall": 0.9722,
+      "f1-score": 0.8589,
+      "support": 144
+    },
+    "Vascular Lesion": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 18
+    }
+  },
+  "confusion_matrix": [
+    [
+      41,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      63,
+      0,
+      0,
+      1,
+      2,
+      0
+    ],
+    [
+      2,
+      1,
+      120,
+      0,
+      8,
+      11,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      14,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      8,
+      0,
+      816,
+      28,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      3,
+      140,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      18
+    ]
+  ],
+  "model_size_mb": 16.1
+}

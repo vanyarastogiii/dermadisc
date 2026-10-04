@@ -1,0 +1,9 @@
+streamlit>=1.55
+pillow
+requests
+pandas
+altair
+numpy
+onnxruntime
+fpdf2
+uharfbuzz
